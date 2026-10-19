@@ -8,17 +8,17 @@
         /// <param name="args"> Список формальных параметров. </param >
         static void Main(string[] args)
         {
-            double a = GetNumber("Введите a = ");
-            double b = GetNumber("Введите b = ");
-            double c = GetNumber("Введите углол между сторонами c = ");
+            double side1 = GetNumber("Введите side1 = ");
+            double side2 = GetNumber("Введите side2 = ");
+            double angle = GetNumber("Введите углол между сторонами angle = ");
 
-            double x = GetResult(a, b, c);
+            double side3 = GetSide(side1, side2, angle);
 
 
-            Console.WriteLine($"a = {a}; b = {b}; угол = {c}; третья сторона = {x}");
-            c *= Math.PI / 180;
-            double z = 0.5 * a * b * Math.Sin(c);
-            Console.WriteLine($"площадь = {z}");
+            Console.WriteLine($"side1 = {side1}; side2 = {side2}; угол = {angle}; третья сторона = {side3}");
+            angle *= Math.PI / 180;
+            double s = 0.5 * side1 * side2 * Math.Sin(angle);
+            Console.WriteLine($"площадь = {s}");
         }
 
         /// <summary >
@@ -39,15 +39,16 @@
         /// <summary >
         /// Получает расчёт функции.
         /// </summary >
-        /// <param name="a"> Переменная a. </param >
-        /// <param name="b"> Переменная b. </param >
-        /// <param name="c"> Переменная c. </param >
+        /// <param name="side1"> Переменная a. </param >
+        /// <param name="side2"> Переменная b. </param >
+        /// <param name="angle"> Переменная c. </param >
+        /// <param name="s"> Переменная z. </param >
         /// <returns > Значение функции. </returns >
-        static double GetResult(double a, double b, double c)
+        static double GetSide(double side1, double side2, double angle)
         {
-            c *= Math.PI / 180;
-            double x = Math.Sqrt(a * a + b * b - 2 * a * b * Math.Cos(c));
-            return x;
+            angle *= Math.PI / 180;
+            double side3 = Math.Sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * Math.Cos(angle));
+            return side3 ;
             
         }
     }
