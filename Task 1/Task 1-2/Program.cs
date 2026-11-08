@@ -14,10 +14,9 @@
 
             double side3 = GetSide(side1, side2, angle);
 
+            double s = GetArea(side1, side2, angle);
 
             Console.WriteLine($"side1 = {side1}; side2 = {side2}; угол = {angle}; третья сторона = {side3}");
-            angle *= Math.PI / 180;
-            double s = 0.5 * side1 * side2 * Math.Sin(angle);
             Console.WriteLine($"площадь = {s}");
         }
 
@@ -30,10 +29,7 @@
         {
             Console.Write(message);
             string input = Console.ReadLine();
-
-
             return double.Parse(input);
-
         }
 
         /// <summary >
@@ -44,10 +40,15 @@
         /// <param name="angle"> Переменная c. </param >
         /// <param name="s"> Переменная z. </param >
         /// <returns > Значение функции. </returns >
+        static double GetArea(double side1, double side2, double angle)
+        {
+            double s = 0.5 * side1 * side2 * Math.Sin(angle * Math.PI / 180);
+            return s;
+        }
         static double GetSide(double side1, double side2, double angle)
         {
-            angle *= Math.PI / 180;
-            double side3 = Math.Sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * Math.Cos(angle));
+            
+            double side3 = Math.Sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * Math.Cos(angle * Math.PI / 180));
             return side3 ;
             
         }
