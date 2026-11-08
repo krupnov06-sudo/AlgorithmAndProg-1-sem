@@ -2,15 +2,19 @@
 {
     internal class Program
     {
+        /// <summary>
+        /// Точка входа в программу.
+        /// </summary>
+        /// <param name="args">Список формальных параметров.</param>
         static void Main(string[] args)
         {
             double length = GetNumber("Введите длину в метрах = ");
-            double s = GetNumber("Введите площадь поперечного сечения в мм2 = ");
-            double po = GetNumber("Введите сопротивление материала в Ом*мм2/м = ");
+            double crossSectionalArea = GetNumber("Введите площадь поперечного сечения в мм2 = ");
+            double resistivity = GetNumber("Введите сопротивление материала в Ом*мм2/м = ");
 
-            double R = GetResult(length, s, po);
+            double wireResistance = GetResult(length, crossSectionalArea, resistivity);
 
-            Console.WriteLine($"длина = {length}; площадь сечения = {s}; удельное сопротивление = {po}; сопротивление провода = {R}");
+            Console.WriteLine($"длина = {length}; площадь сечения = {crossSectionalArea}; удельное сопротивление = {resistivity}; сопротивление провода = {wireResistance}");
         }
         /// <summary>
         /// Получает число.
@@ -28,14 +32,14 @@
         /// <summary>
         /// Поулчает расчет функции.
         /// </summary>
-        /// <param name="a"> Константа a. </param>
-        /// <param name="b"> Константа b. </param>
-        /// <param name="c"> Константа c. </param>
-        /// <param name="x"> Переменная x. </param>
+        /// <param name="length"> Переменная length. </param>
+        /// <param name="crossSectionalArea"> Переменная s. </param>
+        /// <param name="resistivity"> Переменная po. </param>
+        /// <param name="wireResistance"> Переменная R. </param>
         /// <returns> Значение функции. </returns>
-        static double GetResult(double length, double s, double po)
+        static double GetResult(double length, double crossSectionalArea, double resistivity)
         {
-            return (po * length / s);
+            return (resistivity * length / crossSectionalArea);
         }
     }
 }
