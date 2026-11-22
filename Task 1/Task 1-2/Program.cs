@@ -42,14 +42,29 @@
         /// <returns > Значение функции. </returns >
         static double GetArea(double side1, double side2, double angle)
         {
-            double s = 0.5 * side1 * side2 * Math.Sin(angle * Math.PI / 180);
-            return s;
+            
+            return 0.5 * side1 * side2 * ConvertToRadian(angle);
         }
+        /// <summary>
+        /// Преобразует в радианы.
+        /// </summary>
+        /// <param name="angle"></param
+        /// <returns></returns>
+        private static double ConvertToRadian(double angle)
+        {
+            return Math.Sin(angle * Math.PI / 180);
+        }
+        /// <summary>
+        /// Вычисляем.
+        /// </summary>
+        /// <param name="side1"></param>
+        /// <param name="side2"></param>
+        /// <param name="angle"></param>
+        /// <returns></returns>
         static double GetSide(double side1, double side2, double angle)
         {
-            
-            double side3 = Math.Sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * Math.Cos(angle * Math.PI / 180));
-            return side3 ;
+
+            return Math.Sqrt(side1 * side1 + side2 * side2 - 2 * side1 * side2 * Math.Cos(ConvertToRadian(angle))); ;
             
         }
     }
